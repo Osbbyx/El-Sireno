@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+</head>
+<body>
+<script>
+  
+  
+  document.write("OPCIONES <br>----------------------------<br>|(1) = Agregar Producto|<br>---------------------------- <br>|(2) = Editar producto|<br>----------------------------<br>|(3) = Imprimir factura|<br>----------------------------<br>|(4) - Contabilidad|<br>----------------------------<br>|(0) Salir del Menu|<br>----------------------------");
+
+document.write("<br><br><table><th><b>INFORMACION GENERAL<b>");
+  document.write("<br>Empresa: El Sireno");
+  document.write("<br>Telefono: (809) 379-3444");
+  document.write("<br>Email: correo@Elsireno.com");
+  document.write("<br>Surcursa: Av 27 de Febrero");
+  document.write("<br>RNC: 101-84571-4 ");
+  document.write("<br><br>Factura Num: 00284")
+  document.write("<br>NCF: A01001001010101183217<br><br>")
+
+document.write(".........................................Datos...........................................")
+  document.write("<br><b>*******************************************************<b>");
+document.write("<br>* <b>ID * Nombre * Costo * Cantidad * Itbis * Descuento<b> * Valor *");
+document.write("<br><b>*******************************************************<b>");
+  var menu; tabla = 0;
+  tabla = parseInt(tabla);
+  clientes = [];
+
+  do{
+    menu = prompt("Introduzca la opcion de menu: ");
+    switch(parseInt(menu)){
+      case 1: clientes.push(cliente());break;
+      case 2: cambio();break;
+      case 3: facturar();break;
+      case 4: contabilidad();break;
+    }
+  } while(menu != 0);
+
+
+
+  function cliente(){
+  	
+    var datos = [];
+    datos.push(prompt("Introduzca id del producto: "));
+    datos.push(prompt("Introduzca el nombre del producto: "));
+    datos.push(prompt("Introduzca el costo: "));
+    
+    return (datos);
+    }
+    
+  function cambio(){
+  alert(clientes.join('  |   '))
+  a = prompt("columna de producto");
+  b= prompt(" 0 = id producto \n 1 = nombre del producto \n3 = costo");
+  c = prompt("Nuevo valor");
+  clientes[a][b] = c;
+}
+
+
+function facturar(){
+  alert(clientes.join('  |  '))
+ 
+  a = prompt("itbis");
+  a = parseFloat(a);
+   itbis = a/100;
+  a = itbis*100;
+  b = prompt("descuento");
+  b = parseFloat(b);
+  descuento = b/100;
+  b = descuento*100;
+  c = prompt("cantidad");
+  c = parseInt(c);
+  e = prompt("columna del producto");
+  f = clientes[e][2];
+  f = parseInt(f);
+  bruto= c * f;
+  res = bruto + a - b;
+  valor = c * f;
+
+document.write("<br>*"+clientes[e].join("*****")+" *****"+c+" *****"+itbis+"% *****"+descuento+"% *****"+ valor+"*");
+
+}
+
+ function contabilidad(){
+    t = prompt("1 = Ingresos de este Mes (Usuarios * Mensualidad[1000] )\n 2 = Pizza vendidas (1200 * Cantidad vendida)\n 3 = Tacos vendidos (40 * Cantidad vendida)\n0 = Volver al menu \nEliga una opcion: ")
+    y = 18*1000;
+    switch (parseInt(t)) {
+      case 1:
+      alert("Este mes entraran = "+y)
+      break;
+      case 2:
+      u = prompt("Cuantas pizzas se vendieron?")
+      i = u * 1200;
+      alert("se han vendido "+i+" en pizzas!")
+      break;
+      case 3:
+      h = prompt("Cuantos tacos se vendieron")
+      p = h * 40;
+      alert("Se han vendido "+p+" en tacos!")
+      break;
+    }
+  }
+
+res = res + b + a;
+document.write("<br><br><b>MONTO A PAGAR<b>");
+document.write("<br><br>Bruto:"+bruto+"<br>Descuento:"+b+"%<br> Impuesto:"+a+"%<br><br>---------------------<br>| Total a Pagar:"+res+" |<br>---------------------");
+    
+
+document.write("<br> <br>Gracias por preferir al Sireno, empresa que tiene todo lo que quieres, <br>por que comprar nunca fue tan facil.")
+
+</script> 
+</body>
+</html>

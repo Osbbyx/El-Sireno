@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<script>
+  
+ document.write("OPCIONES <br>---------------------------------<br>|(1) = Registrar Empleado|<br>---------------------------------- <br>|(2) = Modificar Empleado|<br>---------------------------------<br>|(3) = Mostrar Empleados|<br>--------------------------------<br>|(0) Salir del Menu|<br>-------------------------------");
+  var menu; tabla = 0;
+  tabla = parseInt(tabla)
+  clientes = [];
+
+  do{
+    menu = prompt("Introduzca la opcion de menu: ");
+    switch(parseInt(menu)){
+      case 1: 
+      clientes.push(crear());
+      break;
+      case 2:
+      Modificar(); 
+      break;
+      case 3:
+      Mostrar();
+      break;
+     
+    }
+  } while(menu != 0);
+
+    var a = 0;
+
+  function crear(){
+    datos = [];
+    datos.push(prompt("Introduzca cuenta del empleado: "))
+    datos.push(prompt("Introduzca el nombre del empleado: "))
+    datos.push(prompt("Introduzca el correo del cliente: "))
+    datos.push(prompt("Introduzca la contrasena del cliente: "))
+    alert("Se a creado exitosamente!")
+
+    return (datos);
+  }
+  function Modificar(){
+   alert(clientes.join('  \n  '))
+    a = clientes;
+    a1 = prompt("Cual Usuario desea modificar?");
+    a2 = prompt("0 = cuenta\n1 = nombre\n2 = correo\n3 = contraseña\nQue desea modificarle?");
+    c = prompt("Introduzca el nuevo valor: ");
+    clientes[a1][a2] = c;
+  }
+  function Mostrar() {
+    alert(clientes.join('  \n  '))
+    document.write("<p></p>")
+    document.write("<table border='1 dotted'>")
+    document.write("<tr bgcolor= '#EA8EC6'>")
+    document.write("<td width=200>Cuenta</td><td>Nombre</td><td>Email</td><td>Contraseña</td>")
+    document.write("</tr><tr>")
+      for (i = 0; i < clientes.length; i++){
+        for(j = 0; j < 4; j++){
+    document.write(("<td width=200>"+clientes[i][j]+"</td>"))
+  } document.write("</tr>")
+  }document.write("</table>")
+  }
+
+
+</script> 
+</body>
+</html>
